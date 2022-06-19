@@ -11,5 +11,5 @@ mv $REPO.db* $REPO.db
 mv $REPO.files* $REPO.files
 
 git add .
-git commit -a
+git commit -a -m "Update database"
 git push
