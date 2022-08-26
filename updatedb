@@ -1,7 +1,12 @@
 #!/bin/sh
 REPO="swindles-arch-packages"
+REPODIR="$HOME/git/$REPO"
+PKGBUILD_DIR="$HOME/git/PKGBUILDs"
 
-cd x86_64
+cd $PKGBUILD_DIR
+cp */*.pkg.tar.zst $REPODIR/x86_64/
+
+cd $REPODIR/x86_64/
 rm -f $REPO*
 repo-add $REPO.db.tar.gz *.pkg.tar.zst
 unlink *.db
@@ -11,5 +16,8 @@ mv $REPO.db* $REPO.db
 mv $REPO.files* $REPO.files
 
 git add .
+printf '\033[1;32m-----------------------------------------\n'
+git diff HEAD --name-only
+printf '\033[1;32m-----------------------------------------\n'
 git commit -a -m "Update database"
 git push
