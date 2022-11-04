@@ -12,7 +12,7 @@ update:
 	mv x86_64/${REPO}.db* x86_64/${REPO}.db
 	mv x86_64/${REPO}.files* x86_64/${REPO}.files
 	git add .
-	@printf '\033[1;32m-----------------------------------------\n'
+	@printf '\033[1;32m-----------------------------------------\n\033[0m'
 	@git diff HEAD --name-only
 	@printf '\033[1;32m-----------------------------------------\n\033[0m'
 	date > lastupdated
