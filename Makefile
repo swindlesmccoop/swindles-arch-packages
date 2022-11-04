@@ -3,7 +3,7 @@ REPODIR=${HOME}/git/${REPO}
 PKGBUILD_DIR=${HOME}/git/PKGBUILDs
 
 update:
-	#cd ${PKGBUILD_DIR} && make && cp */*.pkg.tar.zst ${REPODIR}/x86_64/
+	cd ${PKGBUILD_DIR} && make && cp */*.pkg.tar.zst ${REPODIR}/x86_64/
 	cd ${PKGBUILD_DIR} && git commit -a -m "Bump ver" || continue
 	rm -f x86_64/${REPO}*
 	repo-add x86_64/${REPO}.db.tar.gz x86_64/*.pkg.tar.zst
