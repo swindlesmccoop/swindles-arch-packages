@@ -5,7 +5,7 @@ PKGBUILD_DIR=${HOME}/git/PKGBUILDs
 update:
 	#cd ${PKGBUILD_DIR} && make &&
 	cd ${PKGBUILD_DIR} && cp -f --backup=numbered */*.pkg.tar.zst ${REPODIR}/x86_64/
-	-cd ${PKGBUILD_DIR} && rm *~
+	rm x86_64/*~
 	cd ${PKGBUILD_DIR} && git commit -a -m "Bump ver" || continue
 	rm -f x86_64/${REPO}*
 	repo-add x86_64/${REPO}.db.tar.gz x86_64/*.pkg.tar.zst
